@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using AVGameRPG.Views;
 
 namespace AVGameRPG.Views;
 
@@ -23,5 +25,13 @@ public partial class StoryView : UserControl
         Postanowi³eœ zostaæ najemnikiem, by któregoœ dnia dopaœæ najeŸdŸców
         i pomœciæ wszystkich, którzy zginêli podczas napaœci.
         ";
+
+
+    }
+
+    private void OnContinueClick(object? sender, RoutedEventArgs e)
+    {
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new MainGameMenuView());
     }
 }
