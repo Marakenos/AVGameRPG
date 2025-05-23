@@ -1,0 +1,21 @@
+
+
+															<UserControl xmlns="https://github.com/avaloniaui"
+																		 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+																		 x:Class="AVGameRPG.Views.StoryView"
+																		 Width="800" Height="600">
+																<Grid>
+																	<!-- Tło wioski -->
+																	<Image Source="avares://AVGameRPG/Assets/village.png"
+																		   Stretch="Fill"
+																		   IsHitTestVisible="False"/>
+
+																	<!-- Tekst historii -->
+																	<ScrollViewer Margin="40" VerticalScrollBarVisibility="Auto">
+																		<TextBlock x:Name="StoryText"
+																				   TextWrapping="Wrap"
+																				   FontSize="18"
+																				   Foreground="White"/>
+																	</ScrollViewer>
+																</Grid>
+															</UserControl>

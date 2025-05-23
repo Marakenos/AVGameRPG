@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using AVGameRPG.Views;
 
 namespace AVGameRPG.Views;
 
@@ -13,18 +14,8 @@ public partial class GameView : UserControl
     private void OnContinueClick(object? sender, RoutedEventArgs e)
     {
         var nick = NickInput.Text;
-
-        var dialog = new Window
-        {
-            Width = 300,
-            Height = 100,
-            Content = new TextBlock
-            {
-                Text = $"Witaj, {nick}!",
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
-            }
-        };
-        dialog.ShowDialog((Window)this.VisualRoot!);
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new StoryView(nick));
     }
+
 }
