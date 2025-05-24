@@ -28,9 +28,10 @@
 			</Grid.ColumnDefinitions>
 
 			<!-- Kolumna 1 -->
-			<Button Grid.Row="0" Grid.Column="0">
+			<Button Grid.Row="0" Grid.Column="0" Click="OnTownHallClick">
 				<Image Source="avares://AVGameRPG/Assets/town_hall.png" Width="180" Height="60" Stretch="Uniform"/>
 			</Button>
+
 			<Button Grid.Row="1" Grid.Column="0">
 				<Image Source="avares://AVGameRPG/Assets/healer.png" Width="180" Height="60" Stretch="Uniform"/>
 			</Button>

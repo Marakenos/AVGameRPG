@@ -14,4 +14,11 @@ public partial class MainGameMenuView : UserControl
     {
         (this.VisualRoot as Window)?.Close();
     }
+
+    private void OnTownHallClick(object? sender, RoutedEventArgs e)
+    {
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new TownHallView());
+    }
+
 }

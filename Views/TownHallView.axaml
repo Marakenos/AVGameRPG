@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.TownHallView">
+
+	<Grid>
+		<Image Source="avares://AVGameRPG/Assets/twon_hal_inside.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20" Background="#AA000000">
+			<TextBlock Text="Available Missions" FontSize="24" Foreground="White" HorizontalAlignment="Center"/>
+			<ListBox Name="MissionsList" Width="300" Height="200">
+				<ListBoxItem Content="Defend the village from bandits"/>
+				<ListBoxItem Content="Gather 10 healing herbs"/>
+				<ListBoxItem Content="Escort the merchant to the next town"/>
+			</ListBox>
+			<Button Content="Accept Mission" Width="200" HorizontalAlignment="Center"/>
+		</StackPanel>
+
+		<Button Content="Exit"
+                Width="120" Height="40"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="10"
+                Click="OnExitClick"/>
+	</Grid>
+</UserControl>
