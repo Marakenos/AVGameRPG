@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.GameView">
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/background1.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<!-- Formularz -->
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+			<TextBlock Text="Enter your name:" FontSize="20" HorizontalAlignment="Center"/>
+			<TextBox Width="250" Name="NickInput"/>
+			<Button Content="Next" Width="150" HorizontalAlignment="Center" Click="OnContinueClick"/>
+		</StackPanel>
+	</Grid>
+</UserControl>

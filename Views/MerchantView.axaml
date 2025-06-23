@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.MerchantView">
+	<Grid>
+		<!-- Tło handlarza -->
+		<Image Source="avares://AVGameRPG/Assets/merchant.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<!-- Przycisk Exit -->
+		<Button Content="Exit"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="20"
+                Click="OnExitClick"/>
+	</Grid>
+</UserControl>
