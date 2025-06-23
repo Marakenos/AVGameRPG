@@ -9,9 +9,9 @@
 
 		<!-- Formularz -->
 		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
-			<TextBlock Text="Wprowadź swój nick:" FontSize="20" HorizontalAlignment="Center"/>
+			<TextBlock Text="Enter your name:" FontSize="20" HorizontalAlignment="Center"/>
 			<TextBox Width="250" Name="NickInput"/>
-			<Button Content="Dalej" Width="150" HorizontalAlignment="Center" Click="OnContinueClick"/>
+			<Button Content="Next" Width="150" HorizontalAlignment="Center" Click="OnContinueClick"/>
 		</StackPanel>
 	</Grid>
 </UserControl>

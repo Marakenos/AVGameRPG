@@ -21,4 +21,28 @@ public partial class MainGameMenuView : UserControl
         mainWindow?.SetContent(new TownHallView());
     }
 
+    private void OnHealerClick(object? sender, RoutedEventArgs e)
+    {
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new HealerView());
+    }
+
+    private void OnShopClick(object? sender, RoutedEventArgs e)
+    {
+        if (this.VisualRoot is MainWindow main)
+        {
+            main.SetContent(new MerchantView());
+        }
+    }
+    private void OnInventoryClick(object? sender, RoutedEventArgs e)
+    {
+        if (this.VisualRoot is MainWindow mainWindow)
+        {
+            mainWindow.SetContent(new InventoryView());
+        }
+    }
+    //private void OnArenaClick(object? sender, RoutedEventArgs e)
+    //{
+       // (this.VisualRoot as MainWindow)?.SetContent(new ArenaView());
+    //}
 }
