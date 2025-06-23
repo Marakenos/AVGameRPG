@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.StatsView">
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/EQ.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<Grid Margin="20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- Obraz postaci -->
+			<Image Source="avares://AVGameRPG/Assets/character.png"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"/>
+			
+			<!-- Tło pod listami i same listy -->
+			<Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<!-- Tło pod listami -->
+				<Image Source="avares://AVGameRPG/Assets/UnderEqListy.png"
+					   Stretch="Uniform"
+					   IsHitTestVisible="False"/>
+
+				<!-- Sekcja list ekwipunku -->
+				<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="5">
+					<TextBlock Text="Atak" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Obrona" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Zwinność" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Zręczność" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					
+				</StackPanel>
+			</Grid>
+		</Grid>
+
+		<!-- Przycisk wyjścia -->
+		<Button Content="Exit"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="20"
+                Click="OnExitClick"/>
+	</Grid>
+</UserControl>

@@ -51,10 +51,10 @@
 				</Button>
 
 				<!-- Kolumna 2 -->
-				<Button Grid.Row="0" Grid.Column="1">
+				<Button Grid.Row="0" Grid.Column="1" Click="OnTrainingClick">
 					<Image Source="avares://AVGameRPG/Assets/training arena.png" Width="180" Height="60" Stretch="Uniform"/>
 				</Button>
-				<Button Grid.Row="1" Grid.Column="1">
+				<Button Grid.Row="1" Grid.Column="1" Click="OnStatsClick">
 					<Image Source="avares://AVGameRPG/Assets/statistics.png" Width="180" Height="60" Stretch="Uniform"/>
 				</Button>
 				<Button Grid.Row="2" Grid.Column="1">

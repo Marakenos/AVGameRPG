@@ -41,8 +41,15 @@ public partial class MainGameMenuView : UserControl
             mainWindow.SetContent(new InventoryView());
         }
     }
-    //private void OnArenaClick(object? sender, RoutedEventArgs e)
-    //{
-       // (this.VisualRoot as MainWindow)?.SetContent(new ArenaView());
-    //}
+    private void OnTrainingClick(object? sender, RoutedEventArgs e)
+    {
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new ArenaView());
+    }
+
+    private void OnStatsClick(object? sender, RoutedEventArgs e)
+    {
+        var mainWindow = this.VisualRoot as MainWindow;
+        mainWindow?.SetContent(new StatsView());
+    }
 }

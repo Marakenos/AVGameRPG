@@ -2,6 +2,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AVGameRPG.Views.ArenaView">
 	<Grid>
-		<TextBlock Text="Arena - trening" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<!-- Tło areny -->
+		<Image Source="avares://AVGameRPG/Assets/arena.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<!-- Statystyki do trenowania -->
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+			<TextBlock Text="Wybierz statystykę do trenowania:" FontSize="20" Foreground="White"/>
+
+			<Button Content="Trenuj atak" Click="OnTrainAttackClick" Width="200"/>
+			<Button Content="Trenuj obronę" Click="OnTrainDefenseClick" Width="200"/>
+			<Button Content="Trenuj zwinność" Click="OnTrainAgilityClick" Width="200"/>
+		</StackPanel>
+
+		<!-- Przycisk wyjścia -->
+		<Button Content="Exit"
+                Width="100" Height="40"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="20"
+                Click="OnExitClick"/>
 	</Grid>
 </UserControl>
