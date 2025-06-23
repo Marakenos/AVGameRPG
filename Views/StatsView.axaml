@@ -4,6 +4,7 @@
 	<Grid>
 		<!-- Tło -->
 		<Image Source="avares://AVGameRPG/Assets/EQ.png"
+<<<<<<< HEAD
 			   Stretch="Fill"
 			   IsHitTestVisible="False"/>
 
@@ -13,6 +14,12 @@
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
+=======
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+
+		<Grid Margin="20">
+>>>>>>> 029769fbb2aa6b27cc0cd482ab7ffaaf6a148d20
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="2*"/>
 				<ColumnDefinition Width="3*"/>
@@ -20,6 +27,7 @@
 
 			<!-- Obraz postaci -->
 			<Image Source="avares://AVGameRPG/Assets/character.png"
+<<<<<<< HEAD
 				   Stretch="Uniform"
 				   HorizontalAlignment="Center"
 				   VerticalAlignment="Center"
@@ -50,3 +58,46 @@
 	</Grid>
 </UserControl>
 
+=======
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"/>
+			
+			<!-- Tło pod listami i same listy -->
+			<Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<!-- Tło pod listami -->
+				<Image Source="avares://AVGameRPG/Assets/UnderEqListy.png"
+					   Stretch="Uniform"
+					   IsHitTestVisible="False"/>
+
+				<!-- Sekcja list ekwipunku -->
+				<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="5">
+					<TextBlock Text="Atak" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Obrona" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Zwinność" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					<TextBlock Text="Zręczność" FontWeight="Bold"/>
+					<ListBox Height="10"/>
+
+					
+				</StackPanel>
+			</Grid>
+		</Grid>
+
+		<!-- Przycisk wyjścia -->
+		<Button Content="Exit"
+                Width="100"
+                Height="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="20"
+                Click="OnExitClick"/>
+	</Grid>
+</UserControl>
+>>>>>>> 029769fbb2aa6b27cc0cd482ab7ffaaf6a148d20

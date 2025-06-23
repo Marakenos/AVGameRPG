@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+<<<<<<< HEAD
 using Avalonia.Threading;
 using System;
 using System.Collections.Generic;
@@ -93,3 +94,20 @@ namespace AVGameRPG.Views
 
 
 
+=======
+
+namespace AVGameRPG.Views;
+
+public partial class TownHallView : UserControl
+{
+    public TownHallView()
+    {
+        InitializeComponent();
+    }
+
+    private void OnExitClick(object? sender, RoutedEventArgs e)
+    {
+        (this.VisualRoot as MainWindow)?.SetContent(new MainGameMenuView());
+    }
+}
+>>>>>>> 029769fbb2aa6b27cc0cd482ab7ffaaf6a148d20
