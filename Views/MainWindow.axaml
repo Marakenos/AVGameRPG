@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:AVGameRPG.Views"
+        x:Class="AVGameRPG.Views.MainWindow"
+        Width="800" Height="600"
+        MinWidth="800" MaxWidth="800"
+        MinHeight="600" MaxHeight="600"
+        CanResize="False"
+        Title="AVGameRPG"
+        Icon="/Assets/avalonia-logo.ico">
+
+	<Grid>
+		<Image Source="avares://AVGameRPG/Assets/castle.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"/>
+		<ContentControl x:Name="MainContent">
+			<views:MainMenuView/>
+		</ContentControl>
+	</Grid>
+</Window>

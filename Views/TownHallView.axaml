@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:AVGameRPG"
+             x:Class="AVGameRPG.Views.TownHallView">
+
+	<!-- Uwaga: jeśli klasa Quest jest w AVGameRPG.Models, zmień powyżej
+       xmlns:models="clr-namespace:AVGameRPG.Models" i x:DataType na models:Quest -->
+
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/twon_hal_inside.png"
+			   Stretch="Fill"
+			   IsHitTestVisible="False"/>
+
+		<!-- Panel główny -->
+		<Border Background="#AA000000" Padding="16" CornerRadius="12"
+				HorizontalAlignment="Center" VerticalAlignment="Center">
+			<StackPanel Spacing="16" Width="520">
+
+				<TextBlock Text="Available Missions"
+						   FontSize="24" FontWeight="Bold"
+						   Foreground="White" HorizontalAlignment="Center"/>
+
+				<!-- LISTA QUESTÓW z tytułem, opisem i nagrodami -->
+				<ListBox x:Name="MissionsList" Height="340" SelectionMode="Single"
+						 Background="#202020" BorderBrush="#404040">
+					<ListBox.ItemTemplate>
+						<DataTemplate x:DataType="models:Quest">
+							<Border Padding="10" Margin="0,8" Background="#2A2A2A" CornerRadius="8">
+								<StackPanel Spacing="6">
+									<!-- Tytuł -->
+									<TextBlock Text="{Binding Title}" FontSize="16" FontWeight="Bold" Foreground="White"/>
+									<!-- Opis -->
+									<TextBlock Text="{Binding Description}" TextWrapping="Wrap" Foreground="Gainsboro"/>
+
+									<!-- Nagrody + ewentualny znacznik walki -->
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+
+										<StackPanel Orientation="Horizontal" Spacing="10">
+											<TextBlock Text="Gold:"  Foreground="Gold"/>
+											<TextBlock Text="{Binding RewardGold}" Foreground="Gold"/>
+											<TextBlock Text=" • EXP:" Foreground="LightBlue"/>
+											<TextBlock Text="{Binding RewardExp}" Foreground="LightBlue"/>
+											<TextBlock Text="  (Battle)" Foreground="#FF7F7F" IsVisible="{Binding RequiresBattle}"/>
+										</StackPanel>
+
+										
+									</Grid>
+								</StackPanel>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+				<!-- Sekcja timera dla wybranego questa logistycznego -->
+				<StackPanel Spacing="6" HorizontalAlignment="Center">
+					<TextBlock Text="Time Remaining:" Foreground="White" HorizontalAlignment="Center"/>
+					<TextBlock x:Name="TimeRemainingText" Text="" IsVisible="False"
+							   Foreground="LightGreen" FontSize="16" HorizontalAlignment="Center"/>
+				</StackPanel>
+
+				<Button Content="Accept Mission" Width="200" HorizontalAlignment="Center"
+						Click="OnAcceptMissionClick"/>
+			</StackPanel>
+		</Border>
+
+		<Button Content="Exit"
+			Width="120" Height="40"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Margin="10"
+			Click="OnExitClick"/>
+
+	</Grid>
+</UserControl>
+
+

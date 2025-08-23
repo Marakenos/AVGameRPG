@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.StoryView">
+
+	<Grid>
+		<Image Source="avares://AVGameRPG/Assets/village.png"
+			   Stretch="Fill"
+			   IsHitTestVisible="False"/>
+
+		<Border Background="#AA000000"
+				Padding="20"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Width="600">
+			<StackPanel Spacing="20">
+				<TextBlock x:Name="StoryText"
+						   TextWrapping="Wrap"
+						   Foreground="White"
+						   FontSize="18"/>
+				<Button Content="Continue"
+						Width="200"
+						HorizontalAlignment="Center"
+						Click="OnContinueClick"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,152 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:AVGameRPG.Models"
+             x:Class="AVGameRPG.Views.MerchantView">
+
+	<UserControl.Resources>
+		<!-- Wiersz przedmiotu -->
+		<DataTemplate x:Key="ItemRowTemplate" x:DataType="models:Item">
+			<StackPanel Margin="6,4">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Nazwa (CZARNY) -->
+					<TextBlock Text="{Binding Name}"
+							   Grid.Column="0"
+							   Foreground="Black"
+							   FontWeight="SemiBold"/>
+
+					<!-- Poziom (CZARNY) -->
+					<TextBlock Text="{Binding RequiredLevel, StringFormat='Lvl {0}'}"
+							   Margin="12,0,0,0"
+							   Grid.Column="1"
+							   Foreground="#333"/>
+
+					<!-- Cena + Buy -->
+					<StackPanel Orientation="Horizontal" Grid.Column="2" Spacing="8">
+						<TextBlock Text="{Binding Price, StringFormat=' {0} zł'}"
+								   Foreground="#D48800" FontWeight="Bold"/>
+						<Button Content="Buy" Click="OnBuyClick"/>
+					</StackPanel>
+				</Grid>
+
+				<!-- Opis (CZARNY) -->
+				<TextBlock Text="{Binding Description}"
+						   Margin="0,2,0,0"
+						   Foreground="#222"
+						   FontSize="12"/>
+				<Separator/>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/merchant.png"
+			   Stretch="Fill"
+			   IsHitTestVisible="False"/>
+
+		<!-- Jasny panel sklepu -->
+		<Border Background="#BB000000" Padding="24" CornerRadius="12" Margin="16">
+			<ScrollViewer>
+				<StackPanel Spacing="16">
+					<TextBlock Text="Merchant's Shop"
+							   FontSize="26"
+							   FontWeight="Bold"
+							   Foreground="Gold"
+							   HorizontalAlignment="Center"/>
+
+					<!-- Złoto -->
+					<StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+						<TextBlock Text="Gold:" Foreground="#D48800" FontWeight="Bold"/>
+						<TextBlock x:Name="PlayerGoldText" Foreground="#D48800"/>
+					</StackPanel>
+
+					<!-- Kategorie (listy WŁĄCZONE i jasne) -->
+					<StackPanel Spacing="10">
+
+						<Expander Header="Helmets" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="HeadList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Armor" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="ArmorList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Rings" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="RingList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Necklaces" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="NecklaceList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Gloves" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="GlovesList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Weapons" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="WeaponList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Shields" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="ShieldList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Boots" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="BootsList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+						<Expander Header="Miscellaneous" IsExpanded="False">
+							<Border Background="#FFFFFFFF" CornerRadius="6" Padding="8">
+								<ItemsControl x:Name="MiscList"
+											  IsEnabled="True"
+											  ItemTemplate="{StaticResource ItemRowTemplate}"/>
+							</Border>
+						</Expander>
+
+					</StackPanel>
+
+					<Button Content="Exit" Width="140" HorizontalAlignment="Center"
+							Click="OnExitClick"/>
+				</StackPanel>
+			</ScrollViewer>
+		</Border>
+	</Grid>
+</UserControl>

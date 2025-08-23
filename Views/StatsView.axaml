@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+x:Class="AVGameRPG.Views.StatsView">
+
+
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/EQ.png"
+		Stretch="Fill"
+		IsHitTestVisible="False"/>
+
+
+		<!-- Główna siatka -->
+		<Grid Margin="20">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+
+
+			<!-- Obraz postaci -->
+			<Image Source="avares://AVGameRPG/Assets/character.png"
+			Stretch="Uniform"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Grid.Column="0" Grid.Row="0"/>
+
+
+			<!-- Statystyki gracza -->
+			<StackPanel Grid.Column="1" Grid.Row="0"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Spacing="10">
+
+
+				<TextBlock Text="Statystyki Gracza"
+				FontWeight="Bold" FontSize="20"
+				HorizontalAlignment="Center"/>
+
+				<TextBlock x:Name="PlayerNameText" Text="Name: " Foreground="White"/>
+				<!-- Poziom -->
+				<TextBlock x:Name="PlayerLevelText" Text="Poziom: -" FontSize="16" Foreground="White"/>
+				
+
+
+				<TextBlock x:Name="PlayerHpText" Text="HP: -" FontSize="16" Foreground="White"/>
+				<TextBlock x:Name="PlayerAtkText" Text="Atak: -" FontSize="16" Foreground="White"/>
+
+
+				<TextBlock x:Name="PlayerDefText" Text="Obrona: -" FontSize="16" Foreground="White"/>
+				<TextBlock x:Name="PlayerAgiText" Text="Zwinność: -" FontSize="16" Foreground="White"/>
+				<TextBlock x:Name="PlayerIntText" Text="Inteligencja: -" FontSize="16" Foreground="White"/>
+
+
+				<TextBlock x:Name="PlayerGoldText" Text="Złoto: -" FontSize="16" Foreground="Gold"/>
+
+
+				<!-- EXP jako progres: bieżący / wymagany -->
+				<TextBlock x:Name="PlayerExpText" Text="EXP: -" FontSize="16" Foreground="LightBlue"/>
+			</StackPanel>
+		</Grid>
+
+
+		<!-- Przycisk wyjścia -->
+		<Button Content="Exit"
+		Width="100" Height="40"
+		HorizontalAlignment="Left"
+		VerticalAlignment="Bottom"
+		Margin="20"
+		Click="OnExitClick"/>
+	</Grid>
+</UserControl>
+
+
+
+

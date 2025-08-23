@@ -1,0 +1,39 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fluent="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent"
+             x:Class="AVGameRPG.App"
+             RequestedThemeVariant="Light">
+
+	<Application.Styles>
+		<!-- Motyw Fluent -->
+		<fluent:FluentTheme/>
+
+		<!-- Globalny styl przycisków -->
+		<Style Selector="Button">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="0"/>
+			<Setter Property="Padding" Value="8,4"/>
+		</Style>
+
+		<!-- Wymuszenie koloru tekstu wewnątrz ContentPresenter -->
+		<Style Selector="Button /template/ ContentPresenter">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+		</Style>
+		<Style Selector="Button:pointerover /template/ ContentPresenter">
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+		<Style Selector="Button:pressed /template/ ContentPresenter">
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+		<Style Selector="Button:disabled /template/ ContentPresenter">
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+	</Application.Styles>
+</Application>
+
+
+

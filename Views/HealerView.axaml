@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.HealerView">
+
+	<Grid>
+		<!-- Tło -->
+		<Image Source="avares://AVGameRPG/Assets/healerInside.png"
+			   Stretch="Fill"
+			   IsHitTestVisible="False"/>
+
+		<!-- Panel opcji (wyśrodkowany) -->
+		<Border HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Background="#AA000000"
+				CornerRadius="12"
+				Padding="20"
+				Width="320">
+			<StackPanel Spacing="20">
+				<Button Content="Heal - 20 crowns"
+						Width="250" Height="60"
+						HorizontalAlignment="Center"
+						Click="OnHealClick"/>
+				<Button Content="Restore Mana - 50 crowns"
+						Width="250" Height="60"
+						HorizontalAlignment="Center"
+						Click="OnManaClick"/>
+			</StackPanel>
+		</Border>
+
+		<!-- Exit w prawym dolnym rogu -->
+		<Button Content="Exit"
+				Width="100" Height="40"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				Margin="20"
+				Click="OnExitClick"/>
+	</Grid>
+
+</UserControl>
+

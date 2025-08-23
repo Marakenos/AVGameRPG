@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.MainGameMenuView">
+
+	<Grid>
+		<Image Source="avares://AVGameRPG/Assets/towncentercastle.png"
+               Stretch="Fill"
+               IsHitTestVisible="False"
+               ZIndex="0"/>
+
+		<Grid ZIndex="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+
+			<Image Source="avares://AVGameRPG/Assets/character.png"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"/>
+
+			<Grid Grid.Column="1" VerticalAlignment="Center" Margin="20">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<!-- Kolumna 1 -->
+				<Button Grid.Row="0" Grid.Column="0" Click="OnTownHallClick">
+					<Image Source="avares://AVGameRPG/Assets/town_hall.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+				<Button Grid.Row="1" Grid.Column="0" Click="OnHealerClick">
+					<Image Source="avares://AVGameRPG/Assets/healer.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+				<Button Grid.Row="2" Grid.Column="0" Click="OnShopClick">
+					<Image Source="avares://AVGameRPG/Assets/shop.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+				<Button Grid.Row="3" Grid.Column="0" Click="OnInventoryClick">
+					<Image Source="avares://AVGameRPG/Assets/equipment.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+
+				<!-- Kolumna 2 -->
+				<Button Grid.Row="0" Grid.Column="1" Click="OnTrainingClick">
+					<Image Source="avares://AVGameRPG/Assets/training arena.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+				<Button Grid.Row="1" Grid.Column="1" Click="OnStatsClick">
+					<Image Source="avares://AVGameRPG/Assets/statistics.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+
+				<!-- SAVE -->
+				<Button Grid.Row="2" Grid.Column="1" Click="OnSaveClick">
+					<Image Source="avares://AVGameRPG/Assets/save.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+
+				<!-- EXIT -->
+				<Button Grid.Row="3" Grid.Column="1" Click="OnExitClick">
+					<Image Source="avares://AVGameRPG/Assets/to the menu.png" Width="180" Height="60" Stretch="Uniform"/>
+				</Button>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>
+
+

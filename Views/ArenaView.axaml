@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.ArenaView">
+
+	<Grid>
+		<!-- Tło areny (podmień na swój obraz jeśli chcesz) -->
+		<Image Source="avares://AVGameRPG/Assets/arena.png"
+			   Stretch="Fill" IsHitTestVisible="False"/>
+
+		<Border Background="#BB000000" Padding="24" CornerRadius="12" Margin="16">
+			<StackPanel Spacing="16" Width="520">
+
+				<TextBlock Text="Arena – Trening" FontSize="26" FontWeight="Bold"
+						   Foreground="White" HorizontalAlignment="Center"/>
+
+				<!-- Złoto gracza -->
+				<StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+					<TextBlock Text="Złoto:" Foreground="Gold" FontWeight="Bold"/>
+					<TextBlock x:Name="PlayerGoldText" Foreground="Gold"/>
+				</StackPanel>
+
+				<!-- ATK -->
+				<Border Background="#222" Padding="12" CornerRadius="8">
+					<StackPanel Spacing="6">
+						<TextBlock Text="Trening Ataku" Foreground="White" FontWeight="Bold"/>
+						<TextBlock x:Name="AttackProgressText" Foreground="#DDD"/>
+						<TextBlock x:Name="AttackCostText" Foreground="#CCC"/>
+						<Button Content="Trenuj Atak" Click="OnTrainAttackClick" Width="160"/>
+					</StackPanel>
+				</Border>
+
+				<!-- DEF -->
+				<Border Background="#222" Padding="12" CornerRadius="8">
+					<StackPanel Spacing="6">
+						<TextBlock Text="Trening Obrony" Foreground="White" FontWeight="Bold"/>
+						<TextBlock x:Name="DefenseProgressText" Foreground="#DDD"/>
+						<TextBlock x:Name="DefenseCostText" Foreground="#CCC"/>
+						<Button Content="Trenuj Obronę" Click="OnTrainDefenseClick" Width="160"/>
+					</StackPanel>
+				</Border>
+
+				<!-- AGI -->
+				<Border Background="#222" Padding="12" CornerRadius="8">
+					<StackPanel Spacing="6">
+						<TextBlock Text="Trening Zwinności" Foreground="White" FontWeight="Bold"/>
+						<TextBlock x:Name="AgilityProgressText" Foreground="#DDD"/>
+						<TextBlock x:Name="AgilityCostText" Foreground="#CCC"/>
+						<Button Content="Trenuj Zwinność" Click="OnTrainAgilityClick" Width="160"/>
+					</StackPanel>
+				</Border>
+
+				<Button Content="Exit" Width="120" HorizontalAlignment="Left" Click="OnExitClick"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

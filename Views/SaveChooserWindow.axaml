@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AVGameRPG.Views.SaveChooserWindow"
+        x:CompileBindings="False"
+        Width="420" Height="320"
+        Title="Wybierz zapis" CanResize="False"
+        WindowStartupLocation="CenterOwner">
+	<DockPanel Margin="10">
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Spacing="8" HorizontalAlignment="Right">
+			<Button x:Name="LoadBtn" Content="Wczytaj" Width="100" IsEnabled="False" Click="OnLoadClick"/>
+			<Button Content="Anuluj" Width="100" Click="OnCancelClick"/>
+		</StackPanel>
+
+		<ListBox x:Name="FilesList"
+				 SelectionChanged="OnSelectionChanged"
+				 DisplayMemberBinding="{Binding Name}"/>
+	</DockPanel>
+</Window>
+
+
+

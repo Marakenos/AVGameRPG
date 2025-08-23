@@ -1,0 +1,179 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:AVGameRPG.Models"
+             x:Class="AVGameRPG.Views.InventoryView">
+
+	<UserControl.Resources>
+		<!-- wiersz itemu w rozwijanej liście -->
+		<DataTemplate x:Key="InvItemRow" x:DataType="models:Item">
+			<StackPanel Margin="6,4">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Text="{Binding Name}" Grid.Column="0" Foreground="White"/>
+					<TextBlock Text="{Binding Description}" Grid.Column="1"
+							   Margin="12,0,0,0" Foreground="#CCCCCC" FontSize="12"/>
+					<Button Content="Załóż" Grid.Column="2" Margin="12,0,0,0" Click="OnEquipClick"/>
+				</Grid>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid>
+		<!-- tło jak w innych ekranach -->
+		<Image Source="avares://AVGameRPG/Assets/twon_hal_inside.png"
+			   Stretch="Fill" IsHitTestVisible="False"/>
+
+		<Border Background="#BB000000" Padding="24" CornerRadius="12" Margin="16">
+			<ScrollViewer>
+				<StackPanel Spacing="12" Width="520" HorizontalAlignment="Right">
+
+					<TextBlock Text="Ekwipunek" FontSize="22" FontWeight="Bold"
+							   Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+
+					<!-- SLOTY -->
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Nakrycie głowy:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="HeadCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="HeadItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="HeadEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Zbroja:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="ArmorCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="ArmorItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="ArmorEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Pierścień:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="RingCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="RingItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="RingEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Naszyjnik:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="NecklaceCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="NecklaceItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="NecklaceEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Rękawice:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="GlovesCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="GlovesItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="GlovesEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Broń:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="WeaponCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="WeaponItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="WeaponEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Tarcza:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="ShieldCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="ShieldItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="ShieldEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Buty:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="BootsCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="BootsItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="BootsEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Expander>
+						<Expander.Header>
+							<Grid ColumnDefinitions="160,*,Auto">
+								<TextBlock Text="Różne przedmioty:" Grid.Column="0" Foreground="Black" FontWeight="Bold"/>
+								<Border Background="#2B2B2B" Grid.Column="1" Height="24" VerticalAlignment="Center">
+									<TextBlock x:Name="MiscCurrentText" Margin="6,0" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+							</Grid>
+						</Expander.Header>
+						<StackPanel>
+							<ItemsControl x:Name="MiscItems" ItemTemplate="{StaticResource InvItemRow}"/>
+							<TextBlock x:Name="MiscEmpty" Text="(brak przedmiotów)" Foreground="#CCCCCC" IsVisible="False" Margin="6,2,0,6"/>
+						</StackPanel>
+					</Expander>
+
+					<Button Content="Exit" Width="120" HorizontalAlignment="Left" Click="OnExitClick" Margin="0,8,0,0"/>
+				</StackPanel>
+			</ScrollViewer>
+		</Border>
+	</Grid>
+</UserControl>
+

@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AVGameRPG.Views.BattleView">
+
+	<Grid RowDefinitions="Auto,Auto,Auto,*"
+      ColumnDefinitions="1*,2*,1*"
+      Background="#222">
+		
+
+		<!-- Statystyki Gracza -->
+		<StackPanel Grid.Column="0" HorizontalAlignment="Left" Spacing="8" Margin="10">
+			<TextBlock Text="Gracz" FontWeight="Bold" FontSize="20" Foreground="White"/>
+			<TextBlock x:Name="PlayerHpText" Text="HP: 100" Foreground="White"/>
+			<TextBlock x:Name="PlayerAtkText" Text="Atak: 10" Foreground="White"/>
+			<TextBlock x:Name="PlayerManaText" Text="Mana: 0/0" />
+			<TextBlock x:Name="PlayerGoldText" Text="Złoto: 0" Foreground="White"/>
+			<TextBlock x:Name="PlayerExpText" Text="EXP: 0" Foreground="White"/>
+		</StackPanel>
+
+		<!-- Log walki -->
+		<Border Grid.Column="1" BorderBrush="Gray" BorderThickness="2" Margin="10">
+			<ScrollViewer Height="200">
+				<TextBlock x:Name="BattleLogText"
+                           Text="Walka się zaczyna..."
+                           TextWrapping="Wrap"
+                           Foreground="White"
+                           Margin="10"/>
+			</ScrollViewer>
+		</Border>
+
+		<!-- Statystyki Wroga -->
+		<StackPanel Grid.Column="2" HorizontalAlignment="Right" Spacing="8">
+			<TextBlock x:Name="EnemyNameText" Text="Enemy" FontWeight="Bold" FontSize="20" Foreground="White"/>
+			<TextBlock x:Name="EnemyHpText"   Text="HP: 0/0" Foreground="White"/>
+			<TextBlock x:Name="EnemyAtkText"  Text="Attack: 0-0" Foreground="White"/>
+		</StackPanel>
+
+		<!-- Przycisk akcji -->
+		<StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Spacing="10" Margin="10">
+			<Button Content="Atakuj" Click="OnAttackClick"/>
+			<Button Content="Broń się" Click="OnDefendClick"/>
+			<Button Content="Ulecz się" Click="OnHealClick"/>
+			<Button Content="Unik" Click="OnDodgeClick"/>
+			<Button Content="Cast" Click="OnCastClick"/>
+
+			<Button x:Name="ExitButton"
+			Content="Zakończ walkę"
+			HorizontalAlignment="Center"
+			Margin="10"
+			IsVisible="False"
+			Click="OnExitClick"/>
+		</StackPanel>
+	</Grid>
+</UserControl>
