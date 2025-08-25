@@ -15,9 +15,9 @@ namespace AVGameRPG.Views
 
         // --- Nawigacja ---
 
-        private void OnExitClick(object? sender, RoutedEventArgs e)
+        private void OnExitClick(object? s, RoutedEventArgs e)
         {
-            (this.VisualRoot as Window)?.Close();
+            (this.VisualRoot as MainWindow)?.SetContent(new MainMenuView());
         }
 
         private void OnTownHallClick(object? sender, RoutedEventArgs e)
@@ -64,9 +64,7 @@ namespace AVGameRPG.Views
             if (SaveLoadService.LoadGame())
             {
                 await ShowToast("Game loaded.");
-                // Jeœli po wczytaniu chcesz odœwie¿yæ ekran/statystyki,
-                // mo¿esz tu ponownie prze³adowaæ bie¿¹cy widok lub przejœæ np. do StatsView:
-                // (this.VisualRoot as MainWindow)?.SetContent(new StatsView());
+                
             }
             else
             {

@@ -42,17 +42,17 @@ namespace AVGameRPG.Views
             var p = GameSession.Player;
 
             PlayerNameText.Text = $"Name: {GameSession.Player.Name}";
-            _levelText.Text = $"Poziom: {p.Level}";
+            _levelText.Text = $"Player Level: {p.Level}";
             _hpText.Text = $"HP: {p.CurrentHP}/{p.MaxHP}";
-            _atkText.Text = $"Atak: {p.MinAttack}-{p.MaxAttack}";
+            _atkText.Text = $"Attack: {p.MinAttack}-{p.MaxAttack}";
 
 
-            _defText.Text = $"Obrona: {p.Defense}";
-            _agiText.Text = $"Zwinnoœæ: {p.Agility}";
-            _intText.Text = $"Inteligencja: {p.Intelligence}";
+            _defText.Text = $"Defense: {p.Defense}";
+            _agiText.Text = $"Agility: {p.Agility}";
+            _intText.Text = $"Intelligence: {p.Intelligence}";
 
 
-            _goldText.Text = $"Z³oto: {p.Gold}";
+            _goldText.Text = $"Crowns: {p.Gold}";
             _expText.Text = $"EXP: {p.Experience}/{p.ExpToNextLevel}";
         }
 

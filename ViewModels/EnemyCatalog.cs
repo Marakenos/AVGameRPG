@@ -13,27 +13,27 @@ namespace AVGameRPG.Models
                     Name = "Horde Warlord",
                     MaxHP = 500,
                     CurrentHP = 500,
-                    MinAttack = 25,
-                    MaxAttack = 40,
-                    Defense = 8
+                    MinAttack = 50,
+                    MaxAttack = 87,
+                    Defense = 50
                 },
                 "Bandit" => new Character
                 {
                     Name = "Bandit",
-                    MaxHP = 120,
-                    CurrentHP = 120,
+                    MaxHP = 175,
+                    CurrentHP = 175,
                     MinAttack = 10,
-                    MaxAttack = 18,
-                    Defense = 2
+                    MaxAttack = 30,
+                    Defense = 20
                 },
                 "Horde Scout" => new Character
                 {
                     Name = "Horde Scout",
-                    MaxHP = 160,
-                    CurrentHP = 160,
-                    MinAttack = 12,
-                    MaxAttack = 20,
-                    Defense = 3
+                    MaxHP = 350,
+                    CurrentHP = 350,
+                    MinAttack = 40,
+                    MaxAttack = 74,
+                    Defense = 40
                 },
                 _ => CreateGoblin(enemyName)
             };

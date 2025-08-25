@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace AVGameRPG
 {
@@ -25,8 +26,13 @@ namespace AVGameRPG
         public int Gold { get; set; } = 0;
 
         // --- Level / EXP ---
+        // System.Text.Json nie zapisze/nie wczyta prywatnych setterów bez [JsonInclude].
+        [JsonInclude]
         public int Level { get; private set; } = 1;
+
+        [JsonInclude]
         public int Experience { get; private set; } = 0;
+
         public int ExpToNextLevel => 100 + (Level - 1) * 50;
         public int ExpRemaining => Math.Max(0, ExpToNextLevel - Experience);
 
@@ -64,7 +70,6 @@ namespace AVGameRPG
         public int ComputeDamageTaken(int incoming)
         {
             if (incoming <= 0) return 0;
-            // Redukcja malejąca: dmg * 100 / (100 + DEF)
             var def = Math.Max(0, Defense);
             var reduced = (int)Math.Round(incoming * (100.0 / (100.0 + def)));
             return Math.Max(1, reduced);
@@ -101,6 +106,8 @@ namespace AVGameRPG
 
             Gold = other.Gold;
 
+            // Te pola wczytają się poprawnie dzięki [JsonInclude],
+            // a CopyFrom tylko je sanity-checkuje.
             Level = Math.Max(1, other.Level);
             Experience = Math.Max(0, other.Experience);
             while (Experience >= ExpToNextLevel)
@@ -111,6 +118,7 @@ namespace AVGameRPG
         }
     }
 }
+
 
 
 

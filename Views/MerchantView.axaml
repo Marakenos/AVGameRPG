@@ -28,9 +28,16 @@
 
 					<!-- Cena + Buy -->
 					<StackPanel Orientation="Horizontal" Grid.Column="2" Spacing="8">
-						<TextBlock Text="{Binding Price, StringFormat=' {0} zł'}"
+						<TextBlock Text="{Binding Price, StringFormat=' {0} crowns'}"
 								   Foreground="#D48800" FontWeight="Bold"/>
-						<Button Content="Buy" Click="OnBuyClick"/>
+						<Button Content="Buy"
+						Click="OnBuyClick"
+						Background="Gray"
+						Foreground="White"
+						BorderBrush="#388E3C"
+						BorderThickness="1"
+						Padding="4,2"
+						FontWeight="Bold"/>
 					</StackPanel>
 				</Grid>
 
@@ -62,7 +69,7 @@
 
 					<!-- Złoto -->
 					<StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
-						<TextBlock Text="Gold:" Foreground="#D48800" FontWeight="Bold"/>
+						<TextBlock Text="Crowns:" Foreground="#D48800" FontWeight="Bold"/>
 						<TextBlock x:Name="PlayerGoldText" Foreground="#D48800"/>
 					</StackPanel>
 
@@ -143,8 +150,12 @@
 
 					</StackPanel>
 
-					<Button Content="Exit" Width="140" HorizontalAlignment="Center"
-							Click="OnExitClick"/>
+					<Button Content="Exit"
+					Width="100" Height="40"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					Margin="20"
+					Click="OnExitClick"/>
 				</StackPanel>
 			</ScrollViewer>
 		</Border>

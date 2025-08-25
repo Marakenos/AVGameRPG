@@ -35,25 +35,25 @@ namespace AVGameRPG.Models
             new("q_rats",    3, false, null,   200,  300, TimeSpan.FromMinutes(2),
                 new[]{"Clear the cellar"}, new[]{"Get rid of the rats in the town cellar."}),
 
-            new("q_patrol",  6, false, null,   180, 130, TimeSpan.FromMinutes(2),
+            new("q_patrol",  6, false, null,   180, 350, TimeSpan.FromMinutes(2),
                 new[]{"Town patrol"}, new[]{"Assist the guards during evening patrol."}),
-            new("q_bandits", 7, true,  "Bandit", 180, 180, TimeSpan.FromMinutes(0.5),
+            new("q_bandits", 7, true,  "Bandit", 180, 350, TimeSpan.FromMinutes(0.5),
                 new[]{"Bandit ambush"}, new[]{"Bandits attack travelers on the road. Defeat them!"}),
-            new("q_supplies",9, false, null,   220, 150, TimeSpan.FromMinutes(3),
+            new("q_supplies",9, false, null,   220, 350, TimeSpan.FromMinutes(3),
                 new[]{"Secure supplies"}, new[]{"Protect a convoy with supplies."}),
 
-            new("q_bridge", 11, false, null,   260, 200, TimeSpan.FromMinutes(3),
+            new("q_bridge", 11, false, null,   260, 400, TimeSpan.FromMinutes(3),
                 new[]{"Fix the bridge"}, new[]{"Help carpenters and defend the site occasionally."}),
-            new("q_banditlead",13, true, "Bandit", 250, 260, TimeSpan.FromMinutes(0.6),
+            new("q_banditlead",13, true, "Bandit", 250, 400, TimeSpan.FromMinutes(0.6),
                 new[]{"Bandit hunt"}, new[]{"Track and defeat the bandit leader."}),
-            new("q_messengers",14,false, null,  300, 240, TimeSpan.FromMinutes(3),
+            new("q_messengers",14,false, null,  300, 400, TimeSpan.FromMinutes(3),
                 new[]{"Safe route"}, new[]{"Secure the messengers' route between towns."}),
 
-            new("q_outpost",16,false, null,    360, 300, TimeSpan.FromMinutes(3),
+            new("q_outpost",16,false, null,    360, 450, TimeSpan.FromMinutes(3),
                 new[]{"Hold the outpost"}, new[]{"Defend the outpost from scouts."}),
-            new("q_scouts", 17,true,  "Horde Scout", 340, 360, TimeSpan.FromMinutes(0.8),
+            new("q_scouts", 17,true,  "Horde Scout", 340, 450, TimeSpan.FromMinutes(0.8),
                 new[]{"Repel scouts"}, new[]{"Defeat horde scouts near the pass."}),
-            new("q_fortify",18,false, null,    420, 360, TimeSpan.FromMinutes(3),
+            new("q_fortify",18,false, null,    420, 450, TimeSpan.FromMinutes(3),
                 new[]{"Fortify walls"}, new[]{"Help reinforce the town walls before the siege."})
         };
 

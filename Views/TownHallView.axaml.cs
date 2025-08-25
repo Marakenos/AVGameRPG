@@ -43,7 +43,7 @@ namespace AVGameRPG.Views
             }
             else
             {
-                // ustaw koniec misji: min(pozosta³y czas questa, 45s)
+                //min(pozosta³y czas questa, 45s)
                 var remainingNow = _selectedQuest.TimeRemaining;
                 var capped = remainingNow <= TimeSpan.Zero
                     ? TimeSpan.Zero

@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace AVGameRPG.Models
 {
     public class Equipment
     {
-        public Item? Head { get; private set; }
-        public Item? Armor { get; private set; }
-        public Item? Ring { get; private set; }
-        public Item? Necklace { get; private set; }
-        public Item? Gloves { get; private set; }
-        public Item? Weapon { get; private set; }
-        public Item? Shield { get; private set; }
-        public Item? Boots { get; private set; }
-        public Item? Misc { get; private set; }
+        [JsonInclude] public Item? Head { get; private set; }
+        [JsonInclude] public Item? Armor { get; private set; }
+        [JsonInclude] public Item? Ring { get; private set; }
+        [JsonInclude] public Item? Necklace { get; private set; }
+        [JsonInclude] public Item? Gloves { get; private set; }
+        [JsonInclude] public Item? Weapon { get; private set; }
+        [JsonInclude] public Item? Shield { get; private set; }
+        [JsonInclude] public Item? Boots { get; private set; }
+        [JsonInclude] public Item? Misc { get; private set; }
 
         public Item? GetSlot(ItemCategory cat) => cat switch
         {
@@ -68,7 +69,6 @@ namespace AVGameRPG.Models
 
         private static void ApplyBonuses(AVGameRPG.Character p, Item i)
         {
-            // Atak – podbijamy oba skraje
             p.MinAttack += i.Attack;
             p.MaxAttack += i.Attack;
 
@@ -77,7 +77,7 @@ namespace AVGameRPG.Models
             p.Intelligence += i.Intelligence;
 
             p.MaxHP += i.Hp;
-            p.CurrentHP = Math.Min(p.CurrentHP + i.Hp, p.MaxHP); // delikatny heal przy wzroście HP
+            p.CurrentHP = Math.Min(p.CurrentHP + i.Hp, p.MaxHP);
         }
 
         private static void RemoveBonuses(AVGameRPG.Character p, Item i)

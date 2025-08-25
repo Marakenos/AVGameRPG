@@ -3,19 +3,62 @@
         x:Class="AVGameRPG.Views.SaveChooserWindow"
         x:CompileBindings="False"
         Width="420" Height="320"
-        Title="Wybierz zapis" CanResize="False"
+        Title="Choose Save"
+        CanResize="False"
         WindowStartupLocation="CenterOwner">
-	<DockPanel Margin="10">
-		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Spacing="8" HorizontalAlignment="Right">
-			<Button x:Name="LoadBtn" Content="Wczytaj" Width="100" IsEnabled="False" Click="OnLoadClick"/>
-			<Button Content="Anuluj" Width="100" Click="OnCancelClick"/>
-		</StackPanel>
 
+	<!-- Lokalny styl tylko dla przycisków w tym oknie -->
+	<Window.Styles>
+		<Style Selector="Button.chooser">
+			<Setter Property="Background" Value="#EEE"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="4"/>
+			<Setter Property="Padding" Value="8,4"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+		</Style>
+		<Style Selector="Button.chooser:pointerover">
+			<Setter Property="Background" Value="#E5E5E5"/>
+		</Style>
+		<Style Selector="Button.chooser:pressed">
+			<Setter Property="Background" Value="#DADADA"/>
+		</Style>
+		<Style Selector="Button.chooser:disabled">
+			<Setter Property="Foreground" Value="#888"/>
+			<Setter Property="Background" Value="#F2F2F2"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid Margin="10" RowDefinitions="*,Auto">
+		<!-- Lista plików -->
 		<ListBox x:Name="FilesList"
+				 Grid.Row="0"
+				 Margin="0,0,0,8"
+				 ClipToBounds="True"
 				 SelectionChanged="OnSelectionChanged"
-				 DisplayMemberBinding="{Binding Name}"/>
-	</DockPanel>
+				 DisplayMemberBinding="{Binding Name}" />
+
+		<!-- Pasek przycisków -->
+		<StackPanel Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Right"
+					Spacing="8">
+			<Button x:Name="LoadBtn"
+					Classes="chooser"
+					Content="Load Game"
+					Width="110"
+					IsEnabled="False"
+					IsDefault="True"
+					Click="OnLoadClick" />
+			<Button Content="Cancel"
+					Classes="chooser"
+					Width="110"
+					IsCancel="True"
+					Click="OnCancelClick" />
+		</StackPanel>
+	</Grid>
 </Window>
+
 
 
 

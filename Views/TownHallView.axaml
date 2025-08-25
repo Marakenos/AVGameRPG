@@ -41,7 +41,7 @@
 										</Grid.ColumnDefinitions>
 
 										<StackPanel Orientation="Horizontal" Spacing="10">
-											<TextBlock Text="Gold:"  Foreground="Gold"/>
+											<TextBlock Text="Crowns:"  Foreground="Gold"/>
 											<TextBlock Text="{Binding RewardGold}" Foreground="Gold"/>
 											<TextBlock Text=" • EXP:" Foreground="LightBlue"/>
 											<TextBlock Text="{Binding RewardExp}" Foreground="LightBlue"/>
@@ -70,7 +70,7 @@
 
 		<Button Content="Exit"
 			Width="120" Height="40"
-			HorizontalAlignment="Right"
+			HorizontalAlignment="Left"
 			VerticalAlignment="Bottom"
 			Margin="10"
 			Click="OnExitClick"/>

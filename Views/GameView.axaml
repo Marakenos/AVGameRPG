@@ -9,7 +9,11 @@
 
 		<!-- Formularz -->
 		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
-			<TextBlock Text="Enter your name:" FontSize="20" HorizontalAlignment="Center"/>
+			<TextBlock Text="Enter your name:"
+			 FontSize="20"
+			 HorizontalAlignment="Center"
+			 Foreground="White"
+			FontWeight="Bold"/>
 			<TextBox Width="250" Name="NickInput"/>
 			<Button Content="Next" Width="150" HorizontalAlignment="Center" Click="OnContinueClick"/>
 		</StackPanel>

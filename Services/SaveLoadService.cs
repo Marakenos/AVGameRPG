@@ -10,7 +10,8 @@ namespace AVGameRPG.Services
 {
     public static class SaveLoadService
     {
-        private static readonly string SaveFile = Path.Combine(AppContext.BaseDirectory, "savegame.json");
+        private static readonly string SaveFile =
+            Path.Combine(AppContext.BaseDirectory, "savegame.json");
 
         // MUSI być public, bo LoadGame(string) go zwraca
         public class SaveData
@@ -55,7 +56,9 @@ namespace AVGameRPG.Services
         {
             var dir = Path.Combine(AppContext.BaseDirectory, "saves");
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
-            return Directory.GetFiles(dir, "*.json").OrderByDescending(File.GetLastWriteTimeUtc).ToList();
+            return Directory.GetFiles(dir, "*.json")
+                            .OrderByDescending(File.GetLastWriteTimeUtc)
+                            .ToList();
         }
 
         public static void SaveGame(string path)
@@ -71,22 +74,20 @@ namespace AVGameRPG.Services
             var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(path, json);
         }
+
         public static string SaveGameToSlot()
         {
             var dir = Path.Combine(AppContext.BaseDirectory, "saves");
             Directory.CreateDirectory(dir);
 
             var path = Path.Combine(dir, $"save_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.json");
-
-            SaveGame(path); // używa tej, którą już masz (z parametrem path)
-
+            SaveGame(path);
             return path;
         }
 
-
         public static SaveData? LoadGame(string path)
         {
-            if (!File.Exists(path)) return null;
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(path)) return null;
             var json = File.ReadAllText(path);
             return JsonSerializer.Deserialize<SaveData>(json);
         }
@@ -95,25 +96,28 @@ namespace AVGameRPG.Services
 
         public static void ApplyLoadedData(SaveData data)
         {
+            if (data is null) return;
+
             // Player
-            GameSession.Player.CopyFrom(data.Player);
+            GameSession.Player.CopyFrom(data.Player ?? new Character());
 
             // Inventory
             GameSession.Inventory.Clear();
-            GameSession.Inventory.AddRange(data.Inventory);
+            if (data.Inventory != null && data.Inventory.Count > 0)
+                GameSession.Inventory.AddRange(data.Inventory);
 
-            // Zdejmij aktualny sprzęt i załóż zapisany
-            void UnequipIf(AVGameRPG.Models.Item? it)
+            // Zdejmuję aktualny sprzęt
+            void UnequipIf(Item? it)
             {
                 if (it == null) return;
-                GameSession.Equipment.Unequip(GameSession.Player, it.Category); // jeśli masz Unequip(slot)
+                GameSession.Equipment.Unequip(GameSession.Player, it.Category);
             }
-            void EquipIf(AVGameRPG.Models.Item? it)
+            // Nakładam zapisany
+            void EquipIf(Item? it)
             {
                 if (it != null) GameSession.Equipment.Equip(GameSession.Player, it);
             }
 
-            // zdejmij wszystko (jeśli brak metody zbiorczej – po slotach)
             UnequipIf(GameSession.Equipment.Head);
             UnequipIf(GameSession.Equipment.Armor);
             UnequipIf(GameSession.Equipment.Ring);
@@ -124,25 +128,29 @@ namespace AVGameRPG.Services
             UnequipIf(GameSession.Equipment.Boots);
             UnequipIf(GameSession.Equipment.Misc);
 
-            // nałóż zapisane
-            EquipIf(data.Equipment.Head);
-            EquipIf(data.Equipment.Armor);
-            EquipIf(data.Equipment.Ring);
-            EquipIf(data.Equipment.Necklace);
-            EquipIf(data.Equipment.Gloves);
-            EquipIf(data.Equipment.Weapon);
-            EquipIf(data.Equipment.Shield);
-            EquipIf(data.Equipment.Boots);
-            EquipIf(data.Equipment.Misc);
+            var eq = data.Equipment ?? new Equipment();
+            EquipIf(eq.Head);
+            EquipIf(eq.Armor);
+            EquipIf(eq.Ring);
+            EquipIf(eq.Necklace);
+            EquipIf(eq.Gloves);
+            EquipIf(eq.Weapon);
+            EquipIf(eq.Shield);
+            EquipIf(eq.Boots);
+            EquipIf(eq.Misc);
 
             // Completed quests
             GameSession.CompletedQuestIds.Clear();
-            foreach (var id in data.CompletedQuestIds)
-                GameSession.CompletedQuestIds.Add(id);
+            if (data.CompletedQuestIds != null)
+            {
+                foreach (var id in data.CompletedQuestIds)
+                    if (!string.IsNullOrWhiteSpace(id))
+                        GameSession.CompletedQuestIds.Add(id);
+            }
         }
-
     }
 }
+
 
 
 

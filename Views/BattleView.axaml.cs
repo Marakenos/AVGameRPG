@@ -163,7 +163,7 @@ namespace AVGameRPG.Views
             if (playerWon)
             {
                 Log($"{_enemy.Name} has been defeated!");
-                Log($"+{_selectedQuest.RewardGold} gold, +{_selectedQuest.RewardExp} EXP!");
+                Log($"+{_selectedQuest.RewardGold} crowns, +{_selectedQuest.RewardExp} EXP!");
                 _selectedQuest.IsCompleted = true;
 
                 _player.Gold += _selectedQuest.RewardGold;
@@ -187,8 +187,7 @@ namespace AVGameRPG.Views
             PlayerAtkText.Text = $"Attack: {_player.MinAttack}-{_player.MaxAttack}";
             PlayerGoldText.Text = $"Gold: {_player.Gold}";
             PlayerExpText.Text = $"EXP: {_player.Experience}/{_player.ExpToNextLevel}";
-            // jeœli masz:
-            // PlayerManaText.Text = $"Mana: {_player.CurrentMana}/{_player.MaxMana}";
+            
 
             // Wróg (dynamicznie)
             EnemyNameText.Text = _enemy.Name;
