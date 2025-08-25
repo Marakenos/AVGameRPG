@@ -78,7 +78,7 @@ namespace AVGameRPG.Services
 
             var path = Path.Combine(dir, $"save_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.json");
 
-            SaveGame(path); // używa tej, którą już masz (z parametrem path)
+            SaveGame(path); // używa tej, którą już mam (z parametrem path)
 
             return path;
         }
@@ -102,18 +102,18 @@ namespace AVGameRPG.Services
             GameSession.Inventory.Clear();
             GameSession.Inventory.AddRange(data.Inventory);
 
-            // Zdejmij aktualny sprzęt i załóż zapisany
+            // Zdejmuje aktualny sprzęt i zakładam zapisany
             void UnequipIf(AVGameRPG.Models.Item? it)
             {
                 if (it == null) return;
-                GameSession.Equipment.Unequip(GameSession.Player, it.Category); // jeśli masz Unequip(slot)
+                GameSession.Equipment.Unequip(GameSession.Player, it.Category); // jeśli mam Unequip(slot)
             }
             void EquipIf(AVGameRPG.Models.Item? it)
             {
                 if (it != null) GameSession.Equipment.Equip(GameSession.Player, it);
             }
 
-            // zdejmij wszystko (jeśli brak metody zbiorczej – po slotach)
+            // zdejmuje wszystko (jeśli brak metody zbiorczej – po slotach)
             UnequipIf(GameSession.Equipment.Head);
             UnequipIf(GameSession.Equipment.Armor);
             UnequipIf(GameSession.Equipment.Ring);
@@ -124,7 +124,7 @@ namespace AVGameRPG.Services
             UnequipIf(GameSession.Equipment.Boots);
             UnequipIf(GameSession.Equipment.Misc);
 
-            // nałóż zapisane
+            // nałakładam zapisane
             EquipIf(data.Equipment.Head);
             EquipIf(data.Equipment.Armor);
             EquipIf(data.Equipment.Ring);

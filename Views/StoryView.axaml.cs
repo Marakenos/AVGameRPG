@@ -10,28 +10,21 @@ public partial class StoryView : UserControl
     {
         InitializeComponent();
 
-        // Wstawiamy historiê z nickiem
+        // ustaw nick w sesji (fallback: "Hero")
+        GameSession.Player.Name = string.IsNullOrWhiteSpace(playerNick) ? "Hero" : playerNick.Trim();
+
+        // u¿yj nicku z sesji w historii
+        var name = GameSession.Player.Name;
         StoryText.Text = $@"
-        By³o lato, rok 1000. Noc by³a bezchmurna i pe³na gwiazd.
-
-        Gdy siê obudzi³eœ, drogi {playerNick}, zd¹¿y³eœ tylko wyœcibiæ g³owê przez okno
-        i ujrza³eœ hordê zwierzoludzi naje¿d¿aj¹cych Twoj¹ wioskê.
-
-        Razem z rodzin¹ uciekliœcie w pop³ochu do najbli¿ej po³o¿onego zamku 
-        – Château de Couches.Teraz tam jesteœcie bezpieczni.
-                                
-
-        Lecz serce Twoje wci¹¿ kipi ¿¹dz¹ zemsty.
-        Postanowi³eœ zostaæ najemnikiem, by któregoœ dnia dopaœæ najeŸdŸców
-        i pomœciæ wszystkich, którzy zginêli podczas napaœci.
-        ";
-
-
+        Summer, in the year 1000. The night was clear, the heavens ablaze with stars.
+        When you awoke, {name}, you cast your gaze through the window — only to witness a horde of beastmen descending upon your village in fury.
+        With your family, you fled in desperation, seeking refuge within the nearest stronghold:
+        the Château de Couches. Behind its stone walls you found safety… for now.
+        But your heart knows no rest. It burns with a thirst for vengeance.
+        You have sworn to take up the path of the mercenary, so that one day you may track down the raiders — and avenge all who perished in the flames of that night.";
     }
 
     private void OnContinueClick(object? sender, RoutedEventArgs e)
-    {
-        var mainWindow = this.VisualRoot as MainWindow;
-        mainWindow?.SetContent(new MainGameMenuView());
-    }
+        => (this.VisualRoot as MainWindow)?.SetContent(new MainGameMenuView());
 }
+

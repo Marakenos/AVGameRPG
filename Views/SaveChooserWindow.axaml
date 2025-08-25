@@ -3,12 +3,12 @@
         x:Class="AVGameRPG.Views.SaveChooserWindow"
         x:CompileBindings="False"
         Width="420" Height="320"
-        Title="Wybierz zapis" CanResize="False"
+        Title="Choose Save" CanResize="False"
         WindowStartupLocation="CenterOwner">
 	<DockPanel Margin="10">
 		<StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Spacing="8" HorizontalAlignment="Right">
-			<Button x:Name="LoadBtn" Content="Wczytaj" Width="100" IsEnabled="False" Click="OnLoadClick"/>
-			<Button Content="Anuluj" Width="100" Click="OnCancelClick"/>
+			<Button x:Name="LoadBtn" Content="Load Game" Width="100" IsEnabled="False" Click="OnLoadClick"/>
+			<Button Content="Cancel" Width="100" Click="OnCancelClick"/>
 		</StackPanel>
 
 		<ListBox x:Name="FilesList"

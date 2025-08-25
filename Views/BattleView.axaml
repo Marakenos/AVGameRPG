@@ -9,11 +9,11 @@
 
 		<!-- Statystyki Gracza -->
 		<StackPanel Grid.Column="0" HorizontalAlignment="Left" Spacing="8" Margin="10">
-			<TextBlock Text="Gracz" FontWeight="Bold" FontSize="20" Foreground="White"/>
+			<TextBlock Text="Player" FontWeight="Bold" FontSize="20" Foreground="White"/>
 			<TextBlock x:Name="PlayerHpText" Text="HP: 100" Foreground="White"/>
-			<TextBlock x:Name="PlayerAtkText" Text="Atak: 10" Foreground="White"/>
-			<TextBlock x:Name="PlayerManaText" Text="Mana: 0/0" />
-			<TextBlock x:Name="PlayerGoldText" Text="Złoto: 0" Foreground="White"/>
+			<TextBlock x:Name="PlayerAtkText" Text="Attack: 10" Foreground="White"/>
+			<TextBlock x:Name="PlayerManaText" Text="Mana: 0/0" Foreground="White"/>
+			<TextBlock x:Name="PlayerGoldText" Text="Crowns 0" Foreground="White"/>
 			<TextBlock x:Name="PlayerExpText" Text="EXP: 0" Foreground="White"/>
 		</StackPanel>
 
@@ -21,7 +21,7 @@
 		<Border Grid.Column="1" BorderBrush="Gray" BorderThickness="2" Margin="10">
 			<ScrollViewer Height="200">
 				<TextBlock x:Name="BattleLogText"
-                           Text="Walka się zaczyna..."
+                           Text="The battle begins..."
                            TextWrapping="Wrap"
                            Foreground="White"
                            Margin="10"/>
@@ -38,14 +38,14 @@
 		<!-- Przycisk akcji -->
 		<StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal"
                     HorizontalAlignment="Center" Spacing="10" Margin="10">
-			<Button Content="Atakuj" Click="OnAttackClick"/>
-			<Button Content="Broń się" Click="OnDefendClick"/>
-			<Button Content="Ulecz się" Click="OnHealClick"/>
-			<Button Content="Unik" Click="OnDodgeClick"/>
+			<Button Content="Attack" Click="OnAttackClick"/>
+			<Button Content="Defend" Click="OnDefendClick"/>
+			<Button Content="Heal" Click="OnHealClick"/>
+			<Button Content="Dodge" Click="OnDodgeClick"/>
 			<Button Content="Cast" Click="OnCastClick"/>
 
 			<Button x:Name="ExitButton"
-			Content="Zakończ walkę"
+			Content="End Battle"
 			HorizontalAlignment="Center"
 			Margin="10"
 			IsVisible="False"

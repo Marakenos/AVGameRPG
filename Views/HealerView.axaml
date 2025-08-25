@@ -27,10 +27,10 @@
 			</StackPanel>
 		</Border>
 
-		<!-- Exit w prawym dolnym rogu -->
+		<!-- Exit w prawym lewym rogu -->
 		<Button Content="Exit"
 				Width="100" Height="40"
-				HorizontalAlignment="Right"
+				HorizontalAlignment="Left"
 				VerticalAlignment="Bottom"
 				Margin="20"
 				Click="OnExitClick"/>

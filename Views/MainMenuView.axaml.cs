@@ -20,7 +20,7 @@ public partial class MainMenuView : UserControl
 
         if (files.Count == 0)
         {
-            await new MessageBoxWindow("Brak zapisów!").ShowDialog(owner);
+            await new MessageBoxWindow("No save files!").ShowDialog(owner);
             return;
         }
 
@@ -31,7 +31,7 @@ public partial class MainMenuView : UserControl
         var data = Services.SaveLoadService.LoadGame(chosenPath);
         if (data == null)
         {
-            await new MessageBoxWindow("Nie uda³o siê wczytaæ zapisu.").ShowDialog(owner);
+            await new MessageBoxWindow("Failed to load save.").ShowDialog(owner);
             return;
         }
 

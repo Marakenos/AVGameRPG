@@ -4,7 +4,8 @@ namespace AVGameRPG.Models
 {
     public static class SpellBook
     {
-        // Na start 2 czary. Możesz później uzależnić dostęp od Level/INT/questów.
+        //To wersja beta więc gracz ma dostępne tylko 2 czary, ale można by to spokojnie rozwinąć.
+        //Czary wzmacniają się wraz ze wzrostem intelektu.
         public static List<Spell> GetAvailableSpells(Character caster) => new()
         {
             new Spell

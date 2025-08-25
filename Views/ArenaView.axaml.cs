@@ -22,22 +22,22 @@ namespace AVGameRPG.Views
             PlayerGoldText.Text = p.Gold.ToString();
 
             // ATK
-            AttackProgressText.Text = $"Postêp: {GameSession.AttackTrainCount}/5 (+5 ATK za trening)";
+            AttackProgressText.Text = $"Progress: {GameSession.AttackTrainCount}/5 (+5 ATK per training)";
             AttackCostText.Text = GameSession.AttackTrainCount >= 5
-                ? "Limit osi¹gniêty"
-                : $"Koszt kolejnego treningu: {CostFor(GameSession.AttackTrainCount)} z³";
+                ? "Limit reached"
+                : $"Cost of next training: {CostFor(GameSession.AttackTrainCount)} crowns";
 
             // DEF
-            DefenseProgressText.Text = $"Postêp: {GameSession.DefenseTrainCount}/5 (+5 DEF za trening)";
+            DefenseProgressText.Text = $"Progress: {GameSession.DefenseTrainCount}/5 (+5 DEF per training)";
             DefenseCostText.Text = GameSession.DefenseTrainCount >= 5
-                ? "Limit osi¹gniêty"
-                : $"Koszt kolejnego treningu: {CostFor(GameSession.DefenseTrainCount)} z³";
+                ? "Limit reached"
+                : $"Cost of next training: {CostFor(GameSession.DefenseTrainCount)} crowns";
 
             // AGI
-            AgilityProgressText.Text = $"Postêp: {GameSession.AgilityTrainCount}/5 (+5 AGI za trening)";
+            AgilityProgressText.Text = $"Progress: {GameSession.AgilityTrainCount}/5 (+5 AGI per training)";
             AgilityCostText.Text = GameSession.AgilityTrainCount >= 5
-                ? "Limit osi¹gniêty"
-                : $"Koszt kolejnego treningu: {CostFor(GameSession.AgilityTrainCount)} z³";
+                ? "Limit reached"
+                : $"Cost of next training: {CostFor(GameSession.AgilityTrainCount)} crowns";
         }
 
         private void OnTrainAttackClick(object? sender, RoutedEventArgs e) => TrainStat(StatType.Attack);
@@ -71,14 +71,14 @@ namespace AVGameRPG.Views
             int counter = GetCount(type);
             if (counter >= 5)
             {
-                ShowMessage("Osi¹gniêto maksymalny poziom treningu (5/5).");
+                ShowMessage("Maximum training level reached (5/5)");
                 return;
             }
 
             int cost = CostFor(counter);
             if (p.Gold < cost)
             {
-                ShowMessage($"Za ma³o z³ota. Potrzeba {cost} z³.");
+                ShowMessage($"Not enough crowns. {cost} crowns required.");
                 return;
             }
 
@@ -104,7 +104,7 @@ namespace AVGameRPG.Views
             SetCount(type, counter + 1);
 
             RefreshUI();
-            ShowMessage("Trening zakoñczony sukcesem!");
+            ShowMessage("Training completed successfully!");
         }
 
         private async void ShowMessage(string msg)
