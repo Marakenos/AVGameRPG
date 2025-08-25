@@ -1,4 +1,4 @@
-# AVGameRPG 🎮
+# AVGameRPG 
 
 **AVGameRPG** to lekka gra RPG stworzona w Avalonia (C#/.NET).  
 Gracz rozwija swoją postać, podejmuje misje, zdobywa doświadczenie i ekwipunek.  
@@ -6,7 +6,7 @@ Celem rozgrywki jest **pokonanie głównego bossa** oraz osiągnięcie **20 pozi
 
 ---
 
-## 🚀 Funkcje gry
+## Funkcje gry
 
 - **Postać gracza**
   - Gracz posiada punkty życia (HP) i many (MP)
@@ -41,7 +41,7 @@ Celem rozgrywki jest **pokonanie głównego bossa** oraz osiągnięcie **20 pozi
 
 ---
 
-## 🎯 Cel gry
+## Cel gry
 
 Gra **nie ma twardo zdefiniowanego zakończenia w kodzie**.  
 **Niepisany „koniec gry”** następuje, gdy:
@@ -51,16 +51,16 @@ Gra **nie ma twardo zdefiniowanego zakończenia w kodzie**.
 
 ---
 
-## ⚖️ Balans i ułatwienia
+## Balans i ułatwienia
 
-> ⚠️ W tej wersji gry wprowadzono zmiany, aby gracz mógł szybciej ukończyć rozgrywkę:
+> W tej wersji gry wprowadzono zmiany, aby gracz mógł szybciej ukończyć rozgrywkę:
 
 - **nagrody** (złoto, przedmioty, doświadczenie) są **zwiększone**,  
 - **czas trwania misji** został **skrócony**.  
 
 ---
 
-## 🕹️ Obsługa gry
+## Obsługa gry
 
 - **Menu główne**
   - **Play** — gracz rozpoczyna nową grę
@@ -75,7 +75,7 @@ Gra **nie ma twardo zdefiniowanego zakończenia w kodzie**.
 
 ---
 
-## 📂 Zapis gry
+## Zapis gry
 
 Każdy zapis znajduje się w katalogu `saves/` w formacie JSON, np.:
 
