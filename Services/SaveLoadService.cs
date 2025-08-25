@@ -106,13 +106,13 @@ namespace AVGameRPG.Services
             if (data.Inventory != null && data.Inventory.Count > 0)
                 GameSession.Inventory.AddRange(data.Inventory);
 
-            // Zdejmuję aktualny sprzęt
+            // Unequip obecny sprzęt
             void UnequipIf(Item? it)
             {
                 if (it == null) return;
                 GameSession.Equipment.Unequip(GameSession.Player, it.Category);
             }
-            // Nakładam zapisany
+            // Załóż zapisany
             void EquipIf(Item? it)
             {
                 if (it != null) GameSession.Equipment.Equip(GameSession.Player, it);
@@ -150,6 +150,7 @@ namespace AVGameRPG.Services
         }
     }
 }
+
 
 
 
